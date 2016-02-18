@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.swift
 //  Twitter
 //
@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 import BDBOAuth1Manager
 
 @UIApplicationMain
@@ -49,6 +50,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             success: { (accessToken: BDBOAuth1Credential!) -> Void in
                 print("Got the access token!")
                 TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
+
+                // Get current user info
+                TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json",
+                    parameters: nil,
+                    progress: nil,
+                    success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                        // print("\(response)")
+                        let user = User(dictionary: response as! NSDictionary)
+                        print("user: \(user.name)")
+                    },
+                    failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                        print("Error getting current user.")
+                    }
+                )
+
+                // Get current user tweets
+                TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json",
+                    parameters: nil,
+                    progress: nil,
+                    success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                        // print("\(response)")
+                        let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+
+                        for tweet in tweets {
+                            print("text: \(tweet.text), created: \(tweet.createdAt)")
+                        }
+
+                    },
+                    failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                        print("Error getting timeline.")
+                    }
+                )
+
             },
             failure: { (error: NSError!) -> Void in
                 print("Failed to receive access token!")
