@@ -138,6 +138,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="createdAtLabel" destination="XAt-oo-kbF" id="XcP-SF-c2s"/>
                                             <outlet property="nameLabel" destination="lNI-rD-ONo" id="3oh-UP-AGb"/>
                                             <outlet property="profileImageView" destination="Rx0-K8-Gmy" id="ssS-A1-LpO"/>
                                             <outlet property="screenNameLabel" destination="mJT-fb-Myx" id="Moo-I6-Bs7"/>
