@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func userDidLogout() {
-        let vc = storyboard.instantiateInitialViewController()
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
         window?.rootViewController = vc
     }
 }

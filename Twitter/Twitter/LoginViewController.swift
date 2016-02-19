@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Twitter
 //
 //  Created by Marc Anderson on 2/17/16.
@@ -9,7 +9,7 @@
 import UIKit
 import BDBOAuth1Manager
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
