@@ -10,6 +10,8 @@ import UIKit
 
 class TweetsViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+
     var tweets: [Tweet]?
 
     override func viewDidLoad() {
@@ -30,7 +32,7 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onLogout(sender: UIButton) {
+    @IBAction func onLogout(sender: UIBarButtonItem) {
         User.currentUser?.logout()
     }
 }
