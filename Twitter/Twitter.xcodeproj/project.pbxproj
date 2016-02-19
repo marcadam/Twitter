@@ -18,6 +18,9 @@
 		49DCEA351C75B6B600A2B24B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA341C75B6B600A2B24B /* Tweet.swift */; };
 		49DCEA381C76A2C200A2B24B /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA371C76A2C200A2B24B /* TweetsViewController.swift */; };
 		49DCEA3A1C76ECA100A2B24B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA391C76ECA100A2B24B /* Constants.swift */; };
+		49DCEA3D1C76EFE500A2B24B /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA3C1C76EFE500A2B24B /* TweetCell.swift */; };
+		49DCEA3F1C77160100A2B24B /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA3E1C77160100A2B24B /* TweetDetailViewController.swift */; };
+		49DCEA411C77164200A2B24B /* TweetComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA401C77164200A2B24B /* TweetComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		49DCEA341C75B6B600A2B24B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		49DCEA371C76A2C200A2B24B /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		49DCEA391C76ECA100A2B24B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		49DCEA3C1C76EFE500A2B24B /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		49DCEA3E1C77160100A2B24B /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
+		49DCEA401C77164200A2B24B /* TweetComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetComposeViewController.swift; sourceTree = "<group>"; };
 		91FC3A30774C826973680FB3 /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23409A1156236BB449F2855 /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +61,7 @@
 			children = (
 				49DCEA2E1C753D2100A2B24B /* API */,
 				49DCEA311C75B68800A2B24B /* Models */,
+				49DCEA3B1C76EF3700A2B24B /* Views */,
 				49DCEA361C76A25400A2B24B /* View Controllers */,
 				49DCEA171C75340200A2B24B /* Twitter */,
 				49DCEA2A1C75371D00A2B24B /* Supporting Files */,
@@ -114,8 +121,18 @@
 			children = (
 				49DCEA1A1C75340200A2B24B /* LoginViewController.swift */,
 				49DCEA371C76A2C200A2B24B /* TweetsViewController.swift */,
+				49DCEA3E1C77160100A2B24B /* TweetDetailViewController.swift */,
+				49DCEA401C77164200A2B24B /* TweetComposeViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		49DCEA3B1C76EF3700A2B24B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49DCEA3C1C76EFE500A2B24B /* TweetCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		8E3988C79BE5D344BF96A949 /* Frameworks */ = {
@@ -259,8 +276,11 @@
 			files = (
 				49DCEA331C75B69B00A2B24B /* User.swift in Sources */,
 				49DCEA351C75B6B600A2B24B /* Tweet.swift in Sources */,
+				49DCEA3F1C77160100A2B24B /* TweetDetailViewController.swift in Sources */,
 				49DCEA381C76A2C200A2B24B /* TweetsViewController.swift in Sources */,
+				49DCEA3D1C76EFE500A2B24B /* TweetCell.swift in Sources */,
 				49DCEA1B1C75340200A2B24B /* LoginViewController.swift in Sources */,
+				49DCEA411C77164200A2B24B /* TweetComposeViewController.swift in Sources */,
 				49DCEA3A1C76ECA100A2B24B /* Constants.swift in Sources */,
 				49DCEA301C753D7200A2B24B /* TwitterClient.swift in Sources */,
 				49DCEA191C75340200A2B24B /* AppDelegate.swift in Sources */,
