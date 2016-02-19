@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -97,45 +96,45 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNI-rD-ONo">
-                                                    <rect key="frame" x="66" y="8" width="37.5" height="17"/>
+                                                    <rect key="frame" x="66" y="6" width="37.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xm4-MB-TJs">
-                                                    <rect key="frame" x="66" y="29" width="246" height="17"/>
+                                                    <rect key="frame" x="66" y="28.5" width="246" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100d" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAt-oo-kbF">
-                                                    <rect key="frame" x="279" y="8" width="32.5" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="283" y="8" width="28.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJT-fb-Myx">
-                                                    <rect key="frame" x="111.5" y="8" width="35.5" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="107.5" y="8" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Rx0-K8-Gmy" secondAttribute="bottom" constant="8" id="0gg-m4-c6X"/>
-                                                <constraint firstItem="XAt-oo-kbF" firstAttribute="top" secondItem="Zkg-0s-KO9" secondAttribute="top" constant="8" id="1dG-XV-7Y3"/>
                                                 <constraint firstAttribute="trailing" secondItem="Xm4-MB-TJs" secondAttribute="trailing" constant="8" id="99u-tg-nfX"/>
-                                                <constraint firstItem="Xm4-MB-TJs" firstAttribute="top" secondItem="XAt-oo-kbF" secondAttribute="bottom" constant="4" id="HxW-ad-Fve"/>
+                                                <constraint firstItem="Xm4-MB-TJs" firstAttribute="top" secondItem="XAt-oo-kbF" secondAttribute="bottom" constant="6" id="HxW-ad-Fve"/>
                                                 <constraint firstItem="lNI-rD-ONo" firstAttribute="leading" secondItem="Rx0-K8-Gmy" secondAttribute="trailing" constant="8" id="KfE-RX-78M"/>
-                                                <constraint firstItem="mJT-fb-Myx" firstAttribute="top" secondItem="Zkg-0s-KO9" secondAttribute="topMargin" id="Sfz-Ds-h0B"/>
+                                                <constraint firstItem="XAt-oo-kbF" firstAttribute="baseline" secondItem="mJT-fb-Myx" secondAttribute="baseline" id="YJS-dq-8ee"/>
                                                 <constraint firstItem="XAt-oo-kbF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mJT-fb-Myx" secondAttribute="trailing" constant="8" id="Yuw-Sn-xF4"/>
-                                                <constraint firstItem="mJT-fb-Myx" firstAttribute="leading" secondItem="lNI-rD-ONo" secondAttribute="trailing" constant="8" id="aOB-Qb-jRD"/>
+                                                <constraint firstItem="mJT-fb-Myx" firstAttribute="leading" secondItem="lNI-rD-ONo" secondAttribute="trailing" constant="4" id="aOB-Qb-jRD"/>
                                                 <constraint firstItem="Xm4-MB-TJs" firstAttribute="leading" secondItem="Rx0-K8-Gmy" secondAttribute="trailing" constant="8" id="cjL-i5-oDT"/>
+                                                <constraint firstItem="mJT-fb-Myx" firstAttribute="baseline" secondItem="lNI-rD-ONo" secondAttribute="baseline" id="eFN-Ed-cVp"/>
                                                 <constraint firstItem="Rx0-K8-Gmy" firstAttribute="top" secondItem="Zkg-0s-KO9" secondAttribute="top" constant="8" id="jbf-WL-Gmy"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xm4-MB-TJs" secondAttribute="bottom" constant="8" id="kZH-eh-U3l"/>
                                                 <constraint firstAttribute="trailing" secondItem="XAt-oo-kbF" secondAttribute="trailing" constant="8" id="mkh-Or-sh6"/>
                                                 <constraint firstItem="Rx0-K8-Gmy" firstAttribute="leading" secondItem="Zkg-0s-KO9" secondAttribute="leading" constant="8" id="pDK-VW-GbE"/>
-                                                <constraint firstItem="lNI-rD-ONo" firstAttribute="top" secondItem="Zkg-0s-KO9" secondAttribute="top" constant="8" id="rlS-Aa-frZ"/>
+                                                <constraint firstItem="lNI-rD-ONo" firstAttribute="top" secondItem="Zkg-0s-KO9" secondAttribute="top" constant="6" id="rlS-Aa-frZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
