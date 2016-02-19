@@ -24,12 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // Go to the timeline scene
             print("Current user is detected: \(User.currentUser?.name)")
-
             let tnc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as! UINavigationController
-            tnc.navigationBar.translucent = false
-            tnc.navigationBar.barTintColor = Color.twitterBlue
-            tnc.navigationBar.tintColor = UIColor.whiteColor()
-            tnc.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            Utils.configureDefaultNavigationBar(tnc.navigationBar)
             window?.rootViewController = tnc
         }
 

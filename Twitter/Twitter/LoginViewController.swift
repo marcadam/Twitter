@@ -22,6 +22,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nvc = segue.destinationViewController as! UINavigationController
+        Utils.configureDefaultNavigationBar(nvc.navigationBar)
+    }
 
     @IBAction func onLogin(sender: UIButton) {
         TwitterClient.sharedInstance.loginWithCOmpletion() {
