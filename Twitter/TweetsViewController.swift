@@ -20,22 +20,33 @@ class TweetsViewController: UIViewController {
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
 
-        // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> Void in
-            self.tweets = tweets
-            self.tableView.reloadData()
+        let refreshControll = UIRefreshControl()
+        refreshControll.addTarget(self, action: "refreshTweets:", forControlEvents: .ValueChanged)
+        tableView.insertSubview(refreshControll, atIndex: 0)
 
-            for tweet in self.tweets! {
-                print("text: \(tweet.text), created: \(tweet.createdAt)")
-            }
-        }
+        fetchTweets()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func fetchTweets() {
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> Void in
+            self.tweets = tweets
+            self.tableView.reloadData()
+        }
+    }
+
+    func refreshTweets(refreshControll: UIRefreshControl) {
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> Void in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            refreshControll.endRefreshing()
+        }
+    }
+
     @IBAction func onLogout(sender: UIBarButtonItem) {
         User.currentUser?.logout()
     }
