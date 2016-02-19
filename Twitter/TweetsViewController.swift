@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class TweetsViewController: UIViewController {
 
@@ -33,7 +34,9 @@ class TweetsViewController: UIViewController {
     }
 
     func fetchTweets() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> Void in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             self.tweets = tweets
             self.tableView.reloadData()
         }
