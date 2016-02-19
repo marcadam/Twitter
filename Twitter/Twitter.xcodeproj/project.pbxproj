@@ -17,6 +17,7 @@
 		49DCEA331C75B69B00A2B24B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA321C75B69B00A2B24B /* User.swift */; };
 		49DCEA351C75B6B600A2B24B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA341C75B6B600A2B24B /* Tweet.swift */; };
 		49DCEA381C76A2C200A2B24B /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA371C76A2C200A2B24B /* TweetsViewController.swift */; };
+		49DCEA3A1C76ECA100A2B24B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DCEA391C76ECA100A2B24B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		49DCEA321C75B69B00A2B24B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		49DCEA341C75B6B600A2B24B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		49DCEA371C76A2C200A2B24B /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		49DCEA391C76ECA100A2B24B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		91FC3A30774C826973680FB3 /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23409A1156236BB449F2855 /* Pods-Twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 		49DCEA2A1C75371D00A2B24B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49DCEA391C76ECA100A2B24B /* Constants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				49DCEA351C75B6B600A2B24B /* Tweet.swift in Sources */,
 				49DCEA381C76A2C200A2B24B /* TweetsViewController.swift in Sources */,
 				49DCEA1B1C75340200A2B24B /* LoginViewController.swift in Sources */,
+				49DCEA3A1C76ECA100A2B24B /* Constants.swift in Sources */,
 				49DCEA301C753D7200A2B24B /* TwitterClient.swift in Sources */,
 				49DCEA191C75340200A2B24B /* AppDelegate.swift in Sources */,
 			);
