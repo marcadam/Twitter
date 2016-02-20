@@ -60,6 +60,32 @@ class TwitterClient: BDBOAuth1SessionManager {
         )
     }
 
+    func favoritesCreateWithParams(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> Void) {
+        POST("1.1/favorites/create.json",
+            parameters: params,
+            progress: nil,
+            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("\(response)")
+            },
+            failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Error favoriting tweet.")
+            }
+        )
+    }
+
+    func favoritesDestroyWithParams(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> Void) {
+        POST("1.1/favorites/destroy.json",
+            parameters: params,
+            progress: nil,
+            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("\(response)")
+            },
+            failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Error unfavoriting tweet.")
+            }
+        )
+    }
+
     func openURL(url: NSURL) {
         fetchAccessTokenWithPath("oauth/access_token",
             method: "POST",

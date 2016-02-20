@@ -10,6 +10,17 @@ import UIKit
 
 class TweetControlsCell: UITableViewCell {
 
+    @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+
+    var tweet: Tweet! {
+        didSet {
+            print("tweet ID: \(tweet.tweetID)")
+            print("favorited: \(tweet.favorited)")
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,6 +42,14 @@ class TweetControlsCell: UITableViewCell {
 
     @IBAction func onFavorite(sender: UIButton) {
         print("onFavorite")
+        let params: NSDictionary = ["id": tweet.tweetID!]
+        TwitterClient.sharedInstance.favoritesCreateWithParams(params) { (tweet, error) -> Void in
+            if tweet != nil {
+                print("Tweet favorited!")
+            } else {
+                print("Error favoriting tweet.")
+            }
+        }
     }
 
 }
