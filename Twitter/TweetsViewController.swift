@@ -33,6 +33,12 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let tdvc = segue.destinationViewController as! TweetDetailViewController
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+        tdvc.tweet = tweets![indexPath.row]
+    }
+
     func fetchTweets() {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> Void in
