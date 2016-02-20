@@ -13,6 +13,7 @@ class Tweet {
     var text: String?
     var createdAtString: String?
     var createdAtStringShort: String?
+    var createdAtStringMedium: String?
     var createdAt: NSDate?
 
     init(dictionary: NSDictionary) {
@@ -24,6 +25,9 @@ class Tweet {
         dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = dateFormatter.dateFromString(createdAtString!)
         createdAtStringShort = createdAtStringShortFromDate(createdAt!)
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .ShortStyle
+        createdAtStringMedium = dateFormatter.stringFromDate(createdAt!)
     }
 
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {
