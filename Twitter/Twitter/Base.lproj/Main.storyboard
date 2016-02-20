@@ -119,6 +119,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="inReplyToLabel" destination="fpm-CB-BwB" id="uXd-X2-XRV"/>
+                        <outlet property="tweetButton" destination="5s0-p0-p4i" id="HO1-oy-k4s"/>
                         <outlet property="tweetTextView" destination="SjA-Zf-xCL" id="1Qi-ki-q8L"/>
                     </connections>
                 </viewController>
@@ -388,7 +389,7 @@
                                                     </constraints>
                                                     <state key="normal" image="Reply"/>
                                                     <connections>
-                                                        <action selector="onReply:" destination="Llh-yT-iAf" eventType="touchUpInside" id="IYL-ah-dWd"/>
+                                                        <segue destination="KVO-gk-TvY" kind="modal" identifier="replySegue" id="poy-2v-yuy"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niG-vv-amL">
@@ -479,4 +480,7 @@
         <image name="Reply" width="32" height="36"/>
         <image name="Retweet" width="37" height="36"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="poy-2v-yuy"/>
+    </inferredMetricsTieBreakers>
 </document>

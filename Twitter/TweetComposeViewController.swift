@@ -14,10 +14,21 @@ class TweetComposeViewController: UIViewController {
     @IBOutlet weak var inReplyToLabel: UILabel!
     @IBOutlet weak var tweetTextView: UITextView!
 
+    var tweet: Tweet?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        inReplyToLabel.text = nil
+
+        if let tweet = tweet {
+            if let name = tweet.user?.name, let screenName = tweet.user?.screenName {
+                inReplyToLabel.text = "In reply to @\(name)"
+                tweetTextView.text = "@\(screenName) "
+            }
+        }
+
         tweetTextView.becomeFirstResponder()
     }
 
@@ -27,7 +38,12 @@ class TweetComposeViewController: UIViewController {
     }
 
     @IBAction func onTweet(sender: UIButton) {
-        let params: NSDictionary = ["status": tweetTextView.text]
+        let params: NSMutableDictionary = ["status": tweetTextView.text]
+        if let tweet = tweet {
+            if let tweetID = tweet.tweetID {
+                params["in_reply_to_status_id"] = tweetID
+            }
+        }
         TwitterClient.sharedInstance.updateStatusWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
                 print("Looks like tweeting works.")

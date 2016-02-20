@@ -26,6 +26,13 @@ class TweetDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "replySegue" {
+            let tcvc = segue.destinationViewController as! TweetComposeViewController
+            tcvc.tweet = tweet
+        }
+    }
 }
 
 extension TweetDetailViewController: UITableViewDataSource, UITableViewDelegate {
