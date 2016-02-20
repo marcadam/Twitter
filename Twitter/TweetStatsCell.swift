@@ -14,14 +14,28 @@ class TweetStatsCell: UITableViewCell {
 
     var tweet: Tweet! {
         didSet {
-            var tweetStatsText = ""
-            if let retweetCount = tweet.retweetCount {
-                tweetStatsText += "\(retweetCount) RETWEETS    "
+            let tweetStatsText = NSMutableAttributedString()
+            let regularAttributes = [
+                NSFontAttributeName: UIFont.systemFontOfSize(12.0),
+                NSForegroundColorAttributeName: UIColor.lightGrayColor()
+            ]
+            let boldAttributes = [
+                NSFontAttributeName: UIFont.boldSystemFontOfSize(12.0),
+                NSForegroundColorAttributeName: UIColor.blackColor()
+            ]
+
+            if let retweetCount = tweet.retweetCount where retweetCount > 0 {
+                tweetStatsText.appendAttributedString(NSAttributedString(string: "\(retweetCount)", attributes: boldAttributes))
+                let retweetText = retweetCount == 1 ? "RETWEET" : "RETWEETS"
+                tweetStatsText.appendAttributedString(NSAttributedString(string: " \(retweetText)    ", attributes: regularAttributes))
             }
-            if let favoriteCount = tweet.favoriteCount {
-                tweetStatsText += "\(favoriteCount) LIKES"
+            if let favoriteCount = tweet.favoriteCount where favoriteCount > 0 {
+                let favoriteText = favoriteCount == 1 ? "LIKE" : "LIKES"
+                tweetStatsText.appendAttributedString(NSAttributedString(string: "\(favoriteCount)", attributes: boldAttributes))
+                tweetStatsText.appendAttributedString(NSAttributedString(string: " \(favoriteText)    ", attributes: regularAttributes))
             }
-            tweetStatsLabel.text = tweetStatsText
+
+            tweetStatsLabel.attributedText = tweetStatsText
         }
     }
 
