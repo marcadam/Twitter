@@ -197,6 +197,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ucu-qo-ujF">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="CBF-tP-R9i" userLabel="Footer">
+                                    <rect key="frame" x="0.0" y="292" width="320" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetDetailCell" rowHeight="120" id="G3x-O4-BeK" customClass="TweetDetailCell" customModule="Twitter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="120"/>
@@ -308,6 +313,59 @@
                                             <outlet property="tweetStatsLabel" destination="yQb-ey-pta" id="lAV-qS-c8D"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetControlsCell" rowHeight="36" id="Llh-yT-iAf" customClass="TweetControlsCell" customModule="Twitter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="256" width="320" height="36"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Llh-yT-iAf" id="2FI-V9-4vm">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="35.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yy-58-XEu">
+                                                    <rect key="frame" x="16" y="6" width="21" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="21" id="QD8-9f-ovX"/>
+                                                        <constraint firstAttribute="height" constant="24" id="x11-g7-Frw"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Reply"/>
+                                                    <connections>
+                                                        <action selector="onReply:" destination="Llh-yT-iAf" eventType="touchUpInside" id="IYL-ah-dWd"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niG-vv-amL">
+                                                    <rect key="frame" x="148" y="6" width="25" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="MLg-7S-qxH"/>
+                                                        <constraint firstAttribute="height" constant="24" id="gNT-1h-jZu"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Retweet"/>
+                                                    <connections>
+                                                        <action selector="onRetweet:" destination="Llh-yT-iAf" eventType="touchUpInside" id="dcR-kC-BNB"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST8-N2-1gb">
+                                                    <rect key="frame" x="286" y="6" width="18" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="1wI-f6-g4x"/>
+                                                        <constraint firstAttribute="height" constant="24" id="p71-Xy-Rsd"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Favorite"/>
+                                                    <connections>
+                                                        <action selector="onFavorite:" destination="Llh-yT-iAf" eventType="touchUpInside" id="PMp-k3-zUy"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3yy-58-XEu" firstAttribute="centerY" secondItem="2FI-V9-4vm" secondAttribute="centerY" id="4Y9-6N-3MG"/>
+                                                <constraint firstItem="3yy-58-XEu" firstAttribute="top" secondItem="2FI-V9-4vm" secondAttribute="top" constant="6" id="Ahi-KY-4md"/>
+                                                <constraint firstItem="niG-vv-amL" firstAttribute="centerY" secondItem="2FI-V9-4vm" secondAttribute="centerY" id="Ce0-qN-RrS"/>
+                                                <constraint firstItem="3yy-58-XEu" firstAttribute="leading" secondItem="2FI-V9-4vm" secondAttribute="leadingMargin" constant="8" id="MfW-sp-ZpJ"/>
+                                                <constraint firstItem="niG-vv-amL" firstAttribute="centerX" secondItem="2FI-V9-4vm" secondAttribute="centerX" id="glr-gc-1XE"/>
+                                                <constraint firstAttribute="bottom" secondItem="3yy-58-XEu" secondAttribute="bottom" constant="6" id="kiO-JI-Y3P"/>
+                                                <constraint firstItem="ST8-N2-1gb" firstAttribute="centerY" secondItem="2FI-V9-4vm" secondAttribute="centerY" id="ug6-6I-rPe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ST8-N2-1gb" secondAttribute="trailing" constant="8" id="v8U-M8-enz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="PNy-GD-KKD" id="uVf-eY-zcN"/>
@@ -369,4 +427,9 @@
             <point key="canvasLocation" x="1565" y="-62"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Favorite" width="27" height="36"/>
+        <image name="Reply" width="32" height="36"/>
+        <image name="Retweet" width="37" height="36"/>
+    </resources>
 </document>

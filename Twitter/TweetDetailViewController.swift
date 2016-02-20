@@ -30,7 +30,7 @@ class TweetDetailViewController: UIViewController {
 
 extension TweetDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -38,9 +38,12 @@ extension TweetDetailViewController: UITableViewDataSource, UITableViewDelegate 
             let cell = tableView.dequeueReusableCellWithIdentifier("TweetDetailCell") as! TweetDetailCell
             cell.tweet = tweet
             return cell
-        } else {
+        } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("TweetStatsCell") as! TweetStatsCell
             cell.tweet = tweet
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("TweetControlsCell") as! TweetControlsCell
             return cell
         }
     }
