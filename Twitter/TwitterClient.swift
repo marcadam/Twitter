@@ -60,6 +60,32 @@ class TwitterClient: BDBOAuth1SessionManager {
         )
     }
 
+    func updateStatusWithParams(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> Void) {
+        POST("1.1/statuses/update.json",
+            parameters: params,
+            progress: nil,
+            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("\(response)")
+            },
+            failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Error updating status.")
+            }
+        )
+    }
+
+    func retweetStatusWithParams(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> Void) {
+        POST("1.1/statuses/retweet/\(params["id"]!).json",
+            parameters: params,
+            progress: nil,
+            success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                print("\(response)")
+            },
+            failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Error retweeting status.")
+            }
+        )
+    }
+
     func favoritesCreateWithParams(params: NSDictionary, completion: (tweet: Tweet?, error: NSError?) -> Void) {
         POST("1.1/favorites/create.json",
             parameters: params,

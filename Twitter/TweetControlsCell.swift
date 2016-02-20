@@ -34,10 +34,26 @@ class TweetControlsCell: UITableViewCell {
 
     @IBAction func onReply(sender: UIButton) {
         print("onReply")
+        let params: NSDictionary = ["status": "@Xbox Nice!", "in_reply_to_status_id": tweet.tweetID!]
+        TwitterClient.sharedInstance.updateStatusWithParams(params) { (tweet, error) -> Void in
+            if tweet != nil {
+                print("Looks like reply works.")
+            } else {
+                print("Error replying.")
+            }
+        }
     }
 
     @IBAction func onRetweet(sender: UIButton) {
         print("onRetweet")
+        let params: NSDictionary = ["id": tweet.tweetID!]
+        TwitterClient.sharedInstance.retweetStatusWithParams(params) { (tweet, error) -> Void in
+            if tweet != nil {
+                print("Retweet successful.")
+            } else {
+                print("Retweet failed.")
+            }
+        }
     }
 
     @IBAction func onFavorite(sender: UIButton) {
