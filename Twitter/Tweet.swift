@@ -15,12 +15,13 @@ class Tweet {
     var createdAtStringShort: String?
     var createdAtStringMedium: String?
     var createdAt: NSDate?
+    var retweetCount: Int?
+    var favoriteCount: Int?
 
     init(dictionary: NSDictionary) {
         user = User(dictionary: dictionary["user"] as! NSDictionary)
         text = dictionary["text"] as? String
         createdAtString = dictionary["created_at"] as? String
-
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = dateFormatter.dateFromString(createdAtString!)
@@ -28,6 +29,8 @@ class Tweet {
         dateFormatter.dateStyle = .ShortStyle
         dateFormatter.timeStyle = .ShortStyle
         createdAtStringMedium = dateFormatter.stringFromDate(createdAt!)
+        retweetCount = dictionary["retweet_count"] as? Int
+        favoriteCount = dictionary["favorite_count"] as? Int
     }
 
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {

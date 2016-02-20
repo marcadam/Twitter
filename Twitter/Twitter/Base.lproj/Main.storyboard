@@ -281,6 +281,32 @@
                                             <outlet property="tweetTextLabel" destination="QL3-yu-TTR" id="ToS-50-IjK"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetStatsCell" rowHeight="44" id="SVg-Nl-Fsr" customClass="TweetStatsCell" customModule="Twitter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="212" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SVg-Nl-Fsr" id="Kue-QC-bY0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-ey-pta">
+                                                    <rect key="frame" x="8" y="10" width="304" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yQb-ey-pta" secondAttribute="bottom" constant="10" id="2Ci-o6-tXS"/>
+                                                <constraint firstItem="yQb-ey-pta" firstAttribute="top" secondItem="Kue-QC-bY0" secondAttribute="top" constant="10" id="2Lr-IB-2hS"/>
+                                                <constraint firstItem="yQb-ey-pta" firstAttribute="centerY" secondItem="Kue-QC-bY0" secondAttribute="centerY" id="5C0-ub-Oxh"/>
+                                                <constraint firstItem="yQb-ey-pta" firstAttribute="leading" secondItem="Kue-QC-bY0" secondAttribute="leading" constant="8" id="Teb-dx-hNf"/>
+                                                <constraint firstAttribute="trailing" secondItem="yQb-ey-pta" secondAttribute="trailing" constant="8" id="e5h-Oi-Ec8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="tweetStatsLabel" destination="yQb-ey-pta" id="lAV-qS-c8D"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="PNy-GD-KKD" id="uVf-eY-zcN"/>
