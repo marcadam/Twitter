@@ -18,6 +18,7 @@ class Tweet {
     var createdAt: NSDate?
     var retweetCount: Int?
     var favoriteCount: Int?
+    var retweeted: Bool?
     var favorited: Bool?
 
     init(dictionary: NSDictionary) {
@@ -34,6 +35,7 @@ class Tweet {
         createdAtStringMedium = dateFormatter.stringFromDate(createdAt!)
         retweetCount = dictionary["retweet_count"] as? Int
         favoriteCount = dictionary["favorite_count"] as? Int
+        retweeted = dictionary["retweeted"] as? Bool
         favorited = dictionary["favorited"] as? Bool
     }
 
