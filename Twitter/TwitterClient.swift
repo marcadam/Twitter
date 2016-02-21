@@ -93,6 +93,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             progress: nil,
             success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 // print("\(response)")
+                completion(tweet: Tweet.init(dictionary: response as! NSDictionary), error: nil)
             },
             failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print("Error favoriting tweet.")
