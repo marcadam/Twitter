@@ -24,12 +24,12 @@ class TweetStatsCell: UITableViewCell {
                 NSForegroundColorAttributeName: UIColor.blackColor()
             ]
 
-            if let retweetCount = tweet.retweetCount where retweetCount > 0 {
+            if let retweetCount = tweet.retweetCount{
                 tweetStatsText.appendAttributedString(NSAttributedString(string: "\(retweetCount)", attributes: boldAttributes))
                 let retweetText = retweetCount == 1 ? "RETWEET" : "RETWEETS"
                 tweetStatsText.appendAttributedString(NSAttributedString(string: " \(retweetText)    ", attributes: regularAttributes))
             }
-            if let favoriteCount = tweet.favoriteCount where favoriteCount > 0 {
+            if let favoriteCount = tweet.favoriteCount {
                 let favoriteText = favoriteCount == 1 ? "LIKE" : "LIKES"
                 tweetStatsText.appendAttributedString(NSAttributedString(string: "\(favoriteCount)", attributes: boldAttributes))
                 tweetStatsText.appendAttributedString(NSAttributedString(string: " \(favoriteText)    ", attributes: regularAttributes))
