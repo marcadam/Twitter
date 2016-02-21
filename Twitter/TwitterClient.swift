@@ -23,7 +23,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         consumerSecret: twitterConsumerSecret
     )
 
-    func loginWithCOmpletion(completion: (user: User?, error: NSError?) -> Void) {
+    func loginWithCompletion(completion: (user: User?, error: NSError?) -> Void) {
         loginCompletion = completion
 
         // Fetch request token & redirect to autorization page
