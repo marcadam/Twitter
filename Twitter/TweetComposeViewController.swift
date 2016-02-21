@@ -10,22 +10,27 @@ import UIKit
 
 class TweetComposeViewController: UIViewController {
 
+    @IBOutlet weak var charactersRemainingLabel: UILabel!
     @IBOutlet weak var tweetButton: UIButton!
     @IBOutlet weak var inReplyToLabel: UILabel!
     @IBOutlet weak var tweetTextView: UITextView!
 
     var tweet: Tweet?
+    let tweetMaximumCharacterCount = 140
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "tweetTextDidChange", name: UITextViewTextDidChangeNotification, object: nil)
+
         inReplyToLabel.text = nil
 
         if let tweet = tweet {
             if let name = tweet.user?.name, let screenName = tweet.user?.screenName {
                 inReplyToLabel.text = "In reply to @\(name)"
                 tweetTextView.text = "@\(screenName) "
+                tweetTextDidChange()
             }
         }
 
@@ -35,6 +40,13 @@ class TweetComposeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func tweetTextDidChange() {
+        let tweetCurrentCharacterCount =  tweetTextView.text.characters.count
+        let tweetRemainingCharacterCount = tweetMaximumCharacterCount - tweetCurrentCharacterCount
+        charactersRemainingLabel.text = "\(tweetRemainingCharacterCount)"
+        charactersRemainingLabel.textColor = tweetRemainingCharacterCount >= 0 ? UIColor.lightGrayColor() : UIColor.redColor()
     }
 
     @IBAction func onTweet(sender: UIButton) {
