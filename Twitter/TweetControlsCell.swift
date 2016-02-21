@@ -18,6 +18,10 @@ class TweetControlsCell: UITableViewCell {
         didSet {
             print("tweet ID: \(tweet.tweetID)")
             print("favorited: \(tweet.favorited)")
+
+            if tweet.favorited! {
+                favoriteButton.setImage(UIImage(named: "FavoriteOn"), forState: .Normal)
+            }
         }
     }
 
@@ -30,9 +34,6 @@ class TweetControlsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        if tweet.favorited! {
-            favoriteButton.imageView?.image = UIImage(named: "FavoriteOn")
-        }
     }
 
     @IBAction func onRetweet(sender: UIButton) {
@@ -54,7 +55,7 @@ class TweetControlsCell: UITableViewCell {
             if tweet != nil {
                 print("Tweet favorited!")
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.favoriteButton.imageView?.image = UIImage(named: "FavoriteOn")
+                    self.favoriteButton.setImage(UIImage(named: "FavoriteOn"), forState: .Normal)
                 })
             } else {
                 print("Error favoriting tweet.")
