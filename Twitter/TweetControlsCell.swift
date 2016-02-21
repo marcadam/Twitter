@@ -19,6 +19,13 @@ class TweetControlsCell: UITableViewCell {
             print("tweet ID: \(tweet.tweetID)")
             print("favorited: \(tweet.favorited)")
 
+            if User.currentUser?.userID == tweet.user?.userID {
+                retweetButton.setImage(UIImage(named: "RetweetInactive"), forState: .Normal)
+                retweetButton.enabled = false
+            } else if tweet.retweeted! {
+                retweetButton.setImage(UIImage(named: "RetweetOn"), forState: .Normal)
+            }
+
             if tweet.favorited! {
                 favoriteButton.setImage(UIImage(named: "FavoriteOn"), forState: .Normal)
             }
