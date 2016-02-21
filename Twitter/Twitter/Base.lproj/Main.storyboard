@@ -43,7 +43,7 @@
         <!--Tweet Compose View Controller-->
         <scene sceneID="5Y2-Rc-sTm">
             <objects>
-                <viewController id="KVO-gk-TvY" customClass="TweetComposeViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetComposeViewController" id="KVO-gk-TvY" customClass="TweetComposeViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dmr-Gb-eTM"/>
                         <viewControllerLayoutGuide type="bottom" id="OGo-j9-tb0"/>
@@ -188,6 +188,9 @@
                                                         <constraint firstAttribute="width" constant="16" id="pAE-6J-CXD"/>
                                                     </constraints>
                                                     <state key="normal" image="Reply"/>
+                                                    <connections>
+                                                        <action selector="onReply:" destination="4Cp-8l-DhY" eventType="touchUpInside" id="Ebz-ae-erT"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fU9-rf-tWE">
                                                     <rect key="frame" x="132" y="45" width="19" height="18"/>

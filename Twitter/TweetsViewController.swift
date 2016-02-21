@@ -73,11 +73,21 @@ extension TweetsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
+        cell.delegate = self
         cell.tweet = tweets![indexPath.row]
         return cell
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+}
+
+extension TweetsViewController: TweetCellDelegate {
+    func didReplyToTweet(tweet: Tweet) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tcvc = storyboard.instantiateViewControllerWithIdentifier("TweetComposeViewController") as! TweetComposeViewController
+        tcvc.tweet = tweet
+        presentViewController(tcvc, animated: true, completion: nil)
     }
 }
