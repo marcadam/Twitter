@@ -18,6 +18,8 @@ class TweetsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "insertNewTweet:", name: userDidPostTweetNotification, object: nil)
+
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
 
@@ -55,6 +57,13 @@ class TweetsViewController: UIViewController {
             self.tweets = tweets
             self.tableView.reloadData()
             refreshControll.endRefreshing()
+        }
+    }
+
+    func insertNewTweet(notification: NSNotification) {
+        if let newTweet = notification.userInfo!["tweet"] as? Tweet {
+            tweets?.insert(newTweet, atIndex: 0)
+            tableView.reloadData()
         }
     }
 

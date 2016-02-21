@@ -8,6 +8,8 @@
 
 import UIKit
 
+let userDidPostTweetNotification = "userDidPostTweetNotification"
+
 class TweetComposeViewController: UIViewController {
 
     @IBOutlet weak var charactersRemainingLabel: UILabel!
@@ -60,6 +62,7 @@ class TweetComposeViewController: UIViewController {
             if tweet != nil {
                 print("Looks like tweeting works.")
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    NSNotificationCenter.defaultCenter().postNotificationName(userDidPostTweetNotification, object: nil, userInfo: ["tweet": tweet!])
                     self.tweetTextView.resignFirstResponder()
                     self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
                 })
