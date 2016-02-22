@@ -26,6 +26,7 @@ class TweetComposeViewController: UIViewController {
         // Do any additional setup after loading the view.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "tweetTextDidChange", name: UITextViewTextDidChangeNotification, object: nil)
 
+        tweetButton.enabled = false
         inReplyToLabel.text = nil
 
         if let tweet = tweet {
@@ -45,10 +46,21 @@ class TweetComposeViewController: UIViewController {
     }
 
     func tweetTextDidChange() {
-        let tweetCurrentCharacterCount =  tweetTextView.text.characters.count
+        let tweetCurrentCharacterCount = tweetTextView.text.characters.count
         let tweetRemainingCharacterCount = tweetMaximumCharacterCount - tweetCurrentCharacterCount
         charactersRemainingLabel.text = "\(tweetRemainingCharacterCount)"
-        charactersRemainingLabel.textColor = tweetRemainingCharacterCount >= 0 ? UIColor.lightGrayColor() : UIColor.redColor()
+        if tweetCurrentCharacterCount > 0 {
+            tweetButton.enabled = true
+            if tweetRemainingCharacterCount >= 0 {
+                charactersRemainingLabel.textColor = UIColor.lightGrayColor()
+                tweetButton.enabled = true
+            } else {
+                charactersRemainingLabel.textColor = UIColor.redColor()
+                tweetButton.enabled = false
+            }
+        } else {
+            tweetButton.enabled = false
+        }
     }
 
     @IBAction func onTweet(sender: UIButton) {
