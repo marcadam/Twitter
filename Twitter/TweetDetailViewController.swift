@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol TweetDetailViewControllerDelegate: class {
+    func tweetDetailViewControllerDidUpdateTweet()
+}
+
 class TweetDetailViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
     var tweet: Tweet?
+
+    weak var delegate: TweetDetailViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,5 +68,6 @@ extension TweetDetailViewController: TweetControlsCellDelegate {
     func didUpdateTweet(tweet: Tweet) {
         self.tweet = tweet
         tableView.reloadData()
+        delegate?.tweetDetailViewControllerDidUpdateTweet()
     }
 }

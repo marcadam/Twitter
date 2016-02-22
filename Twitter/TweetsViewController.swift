@@ -38,6 +38,7 @@ class TweetsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tweetDetailSegue" {
             let tdvc = segue.destinationViewController as! TweetDetailViewController
+            tdvc.delegate = self
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
             tdvc.tweet = tweets![indexPath.row]
         }
@@ -101,6 +102,12 @@ extension TweetsViewController: TweetCellDelegate {
     }
 
     func didUpdateTweet() {
+        tableView.reloadData()
+    }
+}
+
+extension TweetsViewController: TweetDetailViewControllerDelegate {
+    func tweetDetailViewControllerDidUpdateTweet() {
         tableView.reloadData()
     }
 }
