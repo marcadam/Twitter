@@ -99,4 +99,8 @@ extension TweetsViewController: TweetCellDelegate {
         tcvc.tweet = tweet
         presentViewController(tcvc, animated: true, completion: nil)
     }
+
+    func didUpdateTweet() {
+        tableView.reloadData()
+    }
 }

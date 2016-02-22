@@ -10,6 +10,7 @@ import UIKit
 
 protocol TweetCellDelegate: class {
     func didReplyToTweet(tweet: Tweet)
+    func didUpdateTweet()
 }
 
 class TweetCell: UITableViewCell {
@@ -83,6 +84,11 @@ class TweetCell: UITableViewCell {
         TwitterClient.sharedInstance.retweetStatusWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
                 print("Retweet successful.")
+                self.tweet.retweeted = true
+                self.tweet.retweetCount = self.tweet.retweetCount! + 1
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.delegate?.didUpdateTweet()
+                })
             } else {
                 print("Retweet failed.")
             }
@@ -94,8 +100,10 @@ class TweetCell: UITableViewCell {
         TwitterClient.sharedInstance.favoritesCreateWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
                 print("Favorite successful.")
+                self.tweet.favorited = true
+                self.tweet.favoriteCount = self.tweet.favoriteCount! + 1
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.favoriteButton.setImage(UIImage(named: "FavoriteOn"), forState: .Normal)
+                    self.delegate?.didUpdateTweet()
                 })
             } else {
                 print("Favorit failed.")
