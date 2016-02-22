@@ -28,6 +28,18 @@ class TweetCell: UITableViewCell {
 
     var tweet: Tweet! {
         didSet {
+            // Reset state
+            profileImageView.image = nil
+            nameLabel.text = nil
+            screenNameLabel.text = nil
+            tweetTextLabel.text = nil
+            createdAtLabel.text = nil
+            retweetButton.setImage(UIImage(named: "Retweet"), forState: .Normal)
+            retweetCountLabel.text = nil
+            favoriteButton.setImage(UIImage(named: "Favorite"), forState: .Normal)
+            favoriteCountLabel.text = nil
+
+            // Set up current state
             nameLabel.text = tweet.user?.name
             nameLabel.sizeToFit()
             if let screenName = tweet.user?.screenName {
