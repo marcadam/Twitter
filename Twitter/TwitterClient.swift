@@ -49,7 +49,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             parameters: params,
             progress: nil,
             success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                // print("\(response)")
+                print("\(response)")
                 let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
                 completion(tweets: tweets, error: nil)
             },

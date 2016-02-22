@@ -79,7 +79,6 @@ class TweetCell: UITableViewCell {
     }
 
     @IBAction func onRetweet(sender: UIButton) {
-        print("onRetweet")
         let params: NSDictionary = ["id": tweet.tweetID!]
         TwitterClient.sharedInstance.retweetStatusWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
@@ -91,16 +90,15 @@ class TweetCell: UITableViewCell {
     }
 
     @IBAction func onFavorite(sender: UIButton) {
-        print("onFavorite")
         let params: NSDictionary = ["id": tweet.tweetID!]
         TwitterClient.sharedInstance.favoritesCreateWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
-                print("Tweet favorited!")
+                print("Favorite successful.")
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.favoriteButton.setImage(UIImage(named: "FavoriteOn"), forState: .Normal)
                 })
             } else {
-                print("Error favoriting tweet.")
+                print("Favorit failed.")
             }
         }
     }
