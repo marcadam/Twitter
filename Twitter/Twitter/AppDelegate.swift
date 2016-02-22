@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if User.currentUser != nil {
             // Go to the timeline scene
-            print("Current user is detected: \(User.currentUser?.name)")
             let tnc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as! UINavigationController
             Utils.configureDefaultNavigationBar(tnc.navigationBar)
             window?.rootViewController = tnc

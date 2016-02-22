@@ -33,7 +33,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             callbackURL: NSURL(string: "codepathtwitter://oauth"),
             scope: nil,
             success: { (requestToken: BDBOAuth1Credential!) -> Void in
-                print("Got the request token!")
+                // print("Got the request token!")
                 let authURL = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token )")!
                 UIApplication.sharedApplication().openURL(authURL)
             },
@@ -49,7 +49,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             parameters: params,
             progress: nil,
             success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                print("\(response)")
+                // print("\(response)")
                 let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
                 completion(tweets: tweets, error: nil)
             },
@@ -105,7 +105,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             parameters: params,
             progress: nil,
             success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                print("\(response)")
+                // print("\(response)")
             },
             failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 print("Error unfavoriting tweet.")
@@ -118,7 +118,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             method: "POST",
             requestToken: BDBOAuth1Credential(queryString: url.query),
             success: { (accessToken: BDBOAuth1Credential!) -> Void in
-                print("Got the access token!")
                 TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
 
                 // Get current user info
@@ -129,7 +128,6 @@ class TwitterClient: BDBOAuth1SessionManager {
                         // print("\(response)")
                         let user = User(dictionary: response as! NSDictionary)
                         User.currentUser = user
-                        print("user: \(user.name)")
                         self.loginCompletion?(user: user, error: nil)
                     },
                     failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
