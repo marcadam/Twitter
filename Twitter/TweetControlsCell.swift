@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TweetControlsCellDelegate: class {
+    func didUpdateTweet(tweet: Tweet)
+}
+
 class TweetControlsCell: UITableViewCell {
 
     @IBOutlet weak var replyButton: UIButton!
@@ -32,6 +36,8 @@ class TweetControlsCell: UITableViewCell {
         }
     }
 
+    weak var delegate: TweetControlsCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -49,6 +55,11 @@ class TweetControlsCell: UITableViewCell {
         TwitterClient.sharedInstance.retweetStatusWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
                 print("Retweet successful.")
+                self.tweet.retweeted = true
+                self.tweet.retweetCount = self.tweet.retweetCount! + 1
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.delegate?.didUpdateTweet(self.tweet)
+                })
             } else {
                 print("Retweet failed.")
             }
@@ -61,13 +72,14 @@ class TweetControlsCell: UITableViewCell {
         TwitterClient.sharedInstance.favoritesCreateWithParams(params) { (tweet, error) -> Void in
             if tweet != nil {
                 print("Tweet favorited!")
+                self.tweet.favorited = true
+                self.tweet.favoriteCount = self.tweet.favoriteCount! + 1
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.favoriteButton.setImage(UIImage(named: "FavoriteOn"), forState: .Normal)
+                    self.delegate?.didUpdateTweet(self.tweet)
                 })
             } else {
                 print("Error favoriting tweet.")
             }
         }
     }
-
 }

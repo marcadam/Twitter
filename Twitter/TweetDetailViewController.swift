@@ -51,8 +51,16 @@ extension TweetDetailViewController: UITableViewDataSource, UITableViewDelegate 
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("TweetControlsCell") as! TweetControlsCell
+            cell.delegate = self
             cell.tweet = tweet
             return cell
         }
+    }
+}
+
+extension TweetDetailViewController: TweetControlsCellDelegate {
+    func didUpdateTweet(tweet: Tweet) {
+        self.tweet = tweet
+        tableView.reloadData()
     }
 }
