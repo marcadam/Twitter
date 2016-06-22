@@ -2,8 +2,6 @@
 
 **Name of your app** is a basic twitter app to read and compose tweets from the [Twitter API](https://apps.twitter.com/).
 
-Time spent: 26 hours spent in total
-
 ## User Stories
 
 The following **required** functionality is completed:
@@ -29,12 +27,6 @@ The following **additional** features are implemented:
 
 - [x] Disable tweet button when there is no text or when there is too much text.
 - [x] Disable retweet button and display a diferent icon when the tweet is from the logged in user.
-
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1. When you upate counts on things like retweets or favorites/likes is it best to just make changes to your local copies and revert if the request failed? Or is it better to update the UI after you get back the successful response? I went with the former thinking it seemed odd if I favorite/like a tweet and then see the count go up by more than one (due to others liking it).
-2. Best practices for delegate patern vs notifications.
-3. Best practices for constructing/naming delegate methods.
 
 ## Video Walkthrough
 
